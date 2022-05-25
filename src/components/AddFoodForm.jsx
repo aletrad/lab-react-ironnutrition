@@ -2,16 +2,11 @@ import React, { useState } from 'react';
 import { Divider, Input } from 'antd';
 
 function AddFoodForm(props) {
-  //const [showForm, setShowForm] = useState(true);
   const { addNewFood } = props;
   const [name, setName] = useState('');
   const [image, setImage] = useState('');
   const [calories, setCalories] = useState(0);
   const [servings, setServings] = useState(0);
-
-  // const toggleShow = () => {
-  //   setShowForm(!showForm);
-  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -53,9 +48,6 @@ function AddFoodForm(props) {
         onChange={handleServings}
       />
       <button type="submit">Create</button>
-      {/* <button onClick={toggleShow}>
-        {showForm ? 'Hide Form' : 'Add New Food'}
-      </button> */}
     </form>
   );
 }

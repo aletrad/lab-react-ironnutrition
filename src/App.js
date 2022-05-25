@@ -8,6 +8,11 @@ import SearchBar from './components/SearchBar';
 function App() {
   const [foodList, setFoodList] = useState(foods);
   const [searchFood, setSearchFood] = useState(foods);
+  const [showForm, setShowForm] = useState(true);
+
+  const toggleShow = () => {
+    setShowForm(!showForm);
+  };
 
   const addNewFood = (newFood) => {
     const updatedFoods = [...foodList, newFood];
@@ -33,7 +38,10 @@ function App() {
   return (
     <div className="App">
       <h1>Food List</h1>
-      <AddFoodForm addNewFood={addNewFood} />
+      <button onClick={toggleShow}>
+        {showForm ? 'Hide Form' : 'Add New Food'}
+      </button>
+      {showForm && <AddFoodForm addNewFood={addNewFood} />}
 
       <SearchBar searchFilter={searchFilter} />
 
